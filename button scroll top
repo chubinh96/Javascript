@@ -1,0 +1,35 @@
+//html
+<button id="toTop" title="Go to top">Top</button>
+//css
+#toTop {
+	padding: 5px 3px;
+	background: red;
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	right: 5px;
+	display: none;
+	-webkit-transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-o-transition: all .25s ease;
+	transition: all .25s ease;
+}
+#toTop:hover {
+	background-color: #555;
+}
+//jquery
+$( document ).ready(function() {
+		$(window).scroll(function() {
+			if ($(this).scrollTop()) {
+				$('#toTop').fadeIn();
+			} else {
+				$('#toTop').fadeOut();
+			}
+		});
+		$("#toTop").click(function () {
+			var body = $("html, body");
+			body.stop().animate({scrollTop:0}, 500, 'swing', function() { 
+			});
+		});
+	});
